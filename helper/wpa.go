@@ -1,13 +1,24 @@
 package service
 
 import (
-	"github.com/Wifx/gonetworkmanager/NetworkManager"
+	"log"
+
+	nm "github.com/Wifx/gonetworkmanager"
 )
 
-//https://github.com/BellerophonMobile/gonetworkmanager
+//https://github.com/Wifx/gonetworkmanager/blob/master/NetworkManager.go
 func WpaService() {
 
-	var devices []Device
-	devices = NetworkManager.GetDevices()
+	//var mynm nm.NetworkManager
+	//var error error
+	mynm, error := nm.NewNetworkManager()
+	if error != nil {
+		log.Println("Error loading NetworkManager %s", error.Error)
+		return
+	}
+
+	devices, error := mynm.GetAllDevices()
+
+	log.Println("Loaded NetworkManager %i", len(devices))
 
 }

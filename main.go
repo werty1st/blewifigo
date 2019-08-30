@@ -7,7 +7,7 @@ import (
 	"log"
 
 	"github.com/paypal/gatt"
-	option "github.com/werty1st/blewifigo"
+	"github.com/werty1st/blewifigo/option"
 	"github.com/werty1st/blewifigo/service"
 )
 

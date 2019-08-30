@@ -1,5 +1,3 @@
-// +build
-
 package main
 
 import (
@@ -9,6 +7,7 @@ import (
 	"github.com/paypal/gatt"
 	"github.com/werty1st/blewifigo/option"
 	"github.com/werty1st/blewifigo/service"
+	"github.com/werty1st/blewifigo/system"
 )
 
 func main() {
@@ -16,6 +15,8 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to open device, err: %s", err)
 	}
+
+	wifi, _ := system.GetSSIDs()
 
 	// Register optional handlers.
 	d.Handle(
@@ -52,5 +53,7 @@ func main() {
 	}
 
 	d.Init(onStateChanged)
+
+	//run loop?
 	select {}
 }

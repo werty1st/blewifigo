@@ -16,7 +16,9 @@ func main() {
 		log.Fatalf("Failed to open device, err: %s", err)
 	}
 
-	wifi, _ := system.GetSSIDs()
+	ssids, _ := system.GetSSIDs()
+
+	log.Print("ssids: %i", len(ssids))
 
 	// Register optional handlers.
 	d.Handle(

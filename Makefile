@@ -3,8 +3,15 @@ build:
 	go build -o main.exe main.go
 
 
+buildx:
+	GOOS=darwin go build -o main.exe main.go
+
 run:
-	go run main.go
+	GODEBUG=cgocheck=0 go run main.go
+
+
+install:
+	go get ./...
 
 
 #install npm nodemon

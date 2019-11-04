@@ -7,11 +7,11 @@ import (
 
 	"github.com/go-ble/ble"
 
-	//"github.com/werty1st/blewifigo/system"
+	"github.com/werty1st/blewifigo/system"
 	"github.com/werty1st/blewifigo/dev"
 	"github.com/werty1st/blewifigo/service"
 
-	system "github.com/werty1st/blewifigo/mock"
+	//system "github.com/werty1st/blewifigo/mock"
 )
 
 var (

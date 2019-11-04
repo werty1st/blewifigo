@@ -72,8 +72,12 @@ end
 
 
 Vagrant.configure("2") do | config |
-    config.vm.box = "ubuntu/bionic64"
-
+    #config.vm.box = "ubuntu/bionic64"
+    
+    #use desktop for networkmanager and wifi
+    config.vm.box = "peru/ubuntu-18.04-desktop-amd64"
+    config.vm.box_version = "20190901.01"
+    
     # not needed for VSC ssh remote if vagrant key is added to agent
     # ssh_pub_key = File.readlines("#{Dir.home}/.ssh/id_rsa.pub").first.strip
     # config.vm.provision 'shell', inline: 'mkdir -p /root/.ssh'
@@ -81,6 +85,7 @@ Vagrant.configure("2") do | config |
     # config.vm.provision 'shell', inline: "echo #{ssh_pub_key} >> /home/vagrant/.ssh/authorized_keys", privileged: false
 
     config.vm.provider "virtualbox" do |vb|
+        vb.gui = false
         vb.memory = "2404"
         vb.cpus = "2"
         vb.name = "ble-dev"
@@ -91,6 +96,12 @@ Vagrant.configure("2") do | config |
 
     end    
 
+    #set the shared folder
+    config.vm.synced_folder "src/", "/go/src/github.com/werty1st/blewifigo"
+
+
+    #provision the box
+    config.vm.provision :shell, :path => "install.sh"
     #ordner
     #/vegrant
 

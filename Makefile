@@ -18,4 +18,13 @@ install:
 #sudo setcap cap_net_raw+eip $(eval readlink -f which node)
 
 
-	
+up:
+	vagrant up
+	ssh-add .vagrant/machines/default/virtualbox/private_key
+
+
+down:
+	vagrant halt
+
+destroy:
+	vagrant destroy

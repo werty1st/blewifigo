@@ -45,6 +45,7 @@ func GetSSIDs() ([]string, error) {
 		if wireless {
 			wifiDevice = device.(nm.DeviceWireless)
 			//needs to scan with all devices
+			//raspberry
 			myssids := getssidsFromDevice(wifiDevice)
 			ssids = append(ssids, myssids...)
 		}

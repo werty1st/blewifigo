@@ -6,11 +6,9 @@ import (
 	"time"
 
 	"github.com/go-ble/ble"
-
-	"github.com/werty1st/blewifigo/system"
 	"github.com/werty1st/blewifigo/dev"
 	"github.com/werty1st/blewifigo/service"
-
+	"github.com/werty1st/blewifigo/system"
 	//system "github.com/werty1st/blewifigo/mock"
 )
 
